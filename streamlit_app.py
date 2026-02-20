@@ -16,10 +16,10 @@ st.write("Enter the following details to predict if you have anemia:")
 
 # Input fields
 gender = st.selectbox("Gender", ["Male", "Female"], key="gender")
-hemoglobin = st.number_input("Hemoglobin", min_value=0.0, step=0.1, key="hemoglobin")
-mch = st.number_input("MCH", min_value=0.0, step=0.1, key="mch")
-mchc = st.number_input("MCHC", min_value=0.0, step=0.1, key="mchc")
-mcv = st.number_input("MCV", min_value=0.0, step=0.1, key="mcv")
+hemoglobin = st.number_input("Hemoglobin (g/dL)", min_value=0.0, step=0.1, key="hemoglobin", help="Normal range: 12-16 g/dL for females, 14-18 g/dL for males")
+mch = st.number_input("MCH (pg)", min_value=0.0, step=0.1, key="mch", help="Normal range: 27-32 pg")
+mchc = st.number_input("MCHC (g/dL)", min_value=0.0, step=0.1, key="mchc", help="Normal range: 32-36 g/dL")
+mcv = st.number_input("MCV (fL)", min_value=0.0, step=0.1, key="mcv", help="Normal range: 80-100 fL")
 
 # Convert gender to numeric (assuming 0 for Male, 1 for Female)
 gender_numeric = 0 if gender == "Male" else 1
