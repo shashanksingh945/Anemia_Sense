@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Predict Anemia</title>
+    <style>
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            padding: 15px 0;
+            text-align: center;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+        .navbar a {
+            color: white;
+            margin: 0 20px;
+            text-decoration: none;
+            font-size: 18px;
+            transition: color 0.3s ease;
+        }
+        .navbar a:hover {
+            color: #ff4d4d;
+        }
+        body {
+            font-family: sans-serif;
+            background-color: #888888;
+            margin: 0;
+            margin-top: 15vh;
+            padding: 0;
+        }
+        .container {
+            padding: 20px;
+            max-width: 80vh;
+            margin: auto;
+            background-color: #f4f4f4;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h4 {
+            margin-bottom: 20px;
+            font-size: 1.5em;
+            color: #333;
+            text-align: center;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: stretch;
+        }
+        label {
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #555;
+        }
+        select, input[type="text"] {
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            font-size: 1em;
+            width: 97%;
+        }
+        input[type="text"]::placeholder {
+            font-size: 0.9em;
+            color: #888;
+        }
+        .btn {
+            background-color: #ff4d4d;
+            color: white;
+            padding: 15px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 1.2em;
+            text-align: center;
+        }
+        .btn:hover {
+            background-color: #e92222;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <a href="/">Home</a>
+        <a href="/">About</a>
+        <a href="prediction">Predict</a>
+        <a href="/">Contact</a>
+    </div>
+    <div class="container">
+        <h4>Anemia Predictor</h4>
+        <form action="/predict" method="post">
+            <label for="Gender">Gender:</label>
+            <select name="Gender" required>
+                <option value="">Select Gender</option>
+                <option value="0">Male</option>
+                <option value="1">Female</option>
+            </select>   
+
+            <label for="Hemoglobin">Hemoglobin (Range: 7-16):</label>
+            <input type="text" name="Hemoglobin" placeholder="Hemoglobin (Range: 7-16)" required>
+
+            <label for="MCH">Mean Corpuscular Hemoglobin (Range: 16-30):</label>
+            <input type="text" name="MCH" placeholder="Mean Corpuscular Hemoglobin (Range: 16-30)" required>
+
+            <label for="MCHC">Mean Corpuscular Hemoglobin Concentration (Range: 28-34):</label>
+            <input type="text" name="MCHC" placeholder="Mean Corpuscular Hemoglobin Concentration (Range: 28-34)" required>
+
+            <label for="MCV">Mean Corpuscular Volume (Range: 70-100):</label>
+            <input type="text" name="MCV" placeholder="Mean Corpuscular Volume (Range: 70-100)" required>
+            
+            <button type="submit" class="btn btn-warning btn-block btn-large">Predict</button>
+        </form>
+    </div>
+    <h4>{{prediction_text}}</h4>
+</body>
+</html>
